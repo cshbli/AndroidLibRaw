@@ -1,36 +1,50 @@
+# Try it
+
+You may directly download the pre-compiled apk `app-debug.apk` to test the current build on your phone.
+
+# Change Logs
+
+### Upgrade Sdk version from 31 to 34
+
+```
+Dependency 'androidx.core:core:1.12.0-alpha05' requires 'compileSdkVersion' to be set to 34 or higher.
+Compilation target for module ':app' is 'android-31'
+
+Dependency 'androidx.core:core-ktx:1.12.0-alpha05' requires 'compileSdkVersion' to be set to 34 or higher.
+Compilation target for module ':app' is 'android-31'
+
+Dependency 'androidx.annotation:annotation-experimental:1.3.0' requires 'compileSdkVersion' to be set to 33 or higher.
+Compilation target for module ':app' is 'android-31'
+```
+
+Change `compileSdk` from 31 to 34
+change `targetSdk` from 31 to 34
+
+### Upgrade ext.kotlin_version from 1.6.10 to 1.8.20
+
+```
+Duplicate class kotlin.collections.jdk8.CollectionsJDK8Kt found in modules jetified-kotlin-stdlib-1.8.21 (org.jetbrains.kotlin:kotlin-stdlib:1.8.21) and jetified-kotlin-stdlib-jdk8-1.5.30 (org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.30)
+Duplicate class kotlin.internal.jdk7.JDK7PlatformImplementations found in modules jetified-kotlin-stdlib-1.8.21 (org.jetbrains.kotlin:kotlin-stdlib:1.8.21) and jetified-kotlin-stdlib-jdk7-1.6.10 (org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.10)
+
+Go to the documentation to learn how to Fix dependency resolution errors.
+```
+
 # Android LibRaw
 Another Android LibRaw implementation.  LibRaw is used to render camera raw image files (e.g Nikon NEF, Canon CR2, Sony ARW).   The project contains a sample app that shows a simple implementation.
+
 
 ## Using the artifact
 On the surface, this is as easy as:
 
 `implementation 'com.homesoft.android:libraw:2.0.4'`
 
-Unfortunately, you also need to add GitHub Packages to your base project build.gradle, which is kind of a pain.  You'll need to add this to your root project build.gradle.
-```groovy
-allprojects {
-    repositories {
-        ...
-        maven {
-            url = 'https://maven.pkg.github.com/dburckh/AndroidLibRaw'
-            credentials {
-                username = System.getenv("GPR_USER")
-                //This password expires, so it will need to updated in environment
-                password = System.getenv("GPR_API_KEY")
-            }
-        }
-    }
-}
-```
-You'll also need to set your GitHub Id into an environment variable called GPR_USER and put your GitHub token in GPR_API_KEY
-
-Might just be easier to download it.  I won't judge.  :)
-[Link](https://github.com/dburckh/AndroidLibRaw/packages/1172747)
+Might just be easier to download it from: 
+https://github.com/dburckh/AndroidLibRaw/packages/1172747
 
 ## Cloning the Project
 Because the project has submodule links, it requires an extra parameter.
 
-`git clone --recurse-submodules https://github.com/dburckh/AndroidLibRaw.git`
+`git clone --recurse-submodules https://github.com/cshbli/AndroidLibRaw.git`
 
 A note on submodules:
 

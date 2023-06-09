@@ -4,12 +4,12 @@ plugins {
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdk 31
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.homesoft.photo.androidlibraw"
         minSdk 24
-        targetSdk 31
+        targetSdk 34
         versionCode 1
         versionName "${rootProject.ext.artifactVersion}"
 
